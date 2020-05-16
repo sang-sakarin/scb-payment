@@ -1,0 +1,2 @@
+class SCBPaymentError(Exception):
+    pass
