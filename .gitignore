@@ -1,3 +1,9 @@
 /env
 
 __pycache__
+
+/scb_payment.egg-info
+
+/build
+
+/dist
