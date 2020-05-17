@@ -12,9 +12,11 @@ from .request import basic_request
 
 class Authorization():
 
-    def __init__(self, api_key, api_secret):
+    def __init__(self, api_key, api_secret, merchant, terminal):
         self.api_key = api_key
         self.api_secret = api_secret
+        self.merchant = merchant
+        self.terminal = terminal
         self.API_ROOT = ENDPOINTS["API_ROOT"]
         self.token = self._get_token()
 
@@ -30,6 +32,9 @@ class Authorization():
         headers['resourceOwnerId'] = str(uuid.uuid4())
         headers['requestUId'] = str(uuid.uuid4())
         headers['accept-language'] = 'EN'
+
+        if getattr(self, "token", None) is not None:
+            headers['authorization'] = "{0} {1}".format("Bearer", self.token)
 
         return headers
 

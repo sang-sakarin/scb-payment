@@ -6,5 +6,6 @@ ENDPOINTS = {
     "API_ROOT": "https://api-sandbox.partners.scb/partners/sandbox",
     "OAUTH_AUTHORIZE_PATH": "/v2/oauth/authorize",
     "OAUTH_TOKEN_PATH": "/v1/oauth/token",
-    "OAUTH_TOKEN_REFRESH_PATH": "/v2/oauth/authorize"
+    "OAUTH_TOKEN_REFRESH_PATH": "/v2/oauth/authorize",
+    "PAYMENT_QRCODE_PATH": "/v1/payment/qrcode/create"
 }
