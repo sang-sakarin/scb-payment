@@ -12,11 +12,12 @@ from .request import basic_request
 
 class Authorization():
 
-    def __init__(self, api_key, api_secret, merchant, terminal):
+    def __init__(self, api_key, api_secret, merchant, terminal, biller):
         self.api_key = api_key
         self.api_secret = api_secret
         self.merchant = merchant
         self.terminal = terminal
+        self.biller = biller
         self.API_ROOT = ENDPOINTS["API_ROOT"]
         self.token = self._get_token()
 
