@@ -93,3 +93,13 @@ class QRCodePayment(Authorization):
             raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
 
         return response['data']
+
+    def payment_inquiry(self, qr):
+        url = self._get_path("QRCODE_CREDITCARD_PATH", qr=qr)
+
+        response = basic_request('GET', url, headers=self._get_headers())
+
+        if response['status']['code'] != BusinessCode.SUCCESS:
+            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
+
+        return response['data']
