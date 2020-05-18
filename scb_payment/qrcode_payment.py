@@ -82,3 +82,14 @@ class QRCodePayment(Authorization):
             raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
 
         return response['data']
+
+    @check_in_kwargs(["transaction"])
+    def slip_verification(self, transaction=None):
+        url = self._get_path("BILLPAYMENT_TRANSACTION_PATH", transaction=transaction)
+
+        response = basic_request('GET', url, headers=self._get_headers())
+
+        if response['status']['code'] != BusinessCode.SUCCESS:
+            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
+
+        return response['data']
