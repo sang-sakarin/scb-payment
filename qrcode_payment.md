@@ -6,7 +6,7 @@ A Python library for [QR Code Payment](https://developer.scb/#/documents/documen
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Initial a Object](#initialobj)
+  - [Initial SCB Object](#initialobj)
   - [Generate QR 30](#gemerateqr30)
   - [Generate QR CS](#gemerateqrcs)
   - [Generate QR 30 QR CS](#gemerateqr30qrcs)
@@ -127,7 +127,7 @@ Format: Reference 3 Prefix + (value), example: SCB1234 ```required```
 #### Parameter:
 
   * ```amount``` <b>number</b> Amount of transaction with the length up to 13 characters including "." e.g. 100, 100.00 ```required```
-  * ```invoice``` <b>string</b> Invoice number as unique ID per transaction for QR CS. It must be English uppercase letters and numbers only. ```required`
+  * ```invoice``` <b>string</b> Invoice number as unique ID per transaction for QR CS. It must be English uppercase letters and numbers only. ```required```
   * ```ref1``` <b>string</b> Reference number required for the relevant payment methods. ```required```
   * ```ref2``` <b>string</b> Reference number required for the relevant payment methods.
 Required if: Supporting Reference field under merchant profile of application is set to Two references. ```required```

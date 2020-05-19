@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='scb-payment',
-    version='0.0.1',
+    version='0.1.0',
     description='A Python library for SCB Payment API',
     long_description=readme(),
     long_description_content_type="text/markdown",
