@@ -4,9 +4,7 @@ A libraly that provides a python interface to SCB Payment API
 import json
 
 from .authorization import Authorization
-from .business_code import BusinessCode
 from .decorators import check_in_kwargs
-from .error import SCBPaymentError
 from .qr_type import QRType
 from .request import basic_request
 
@@ -29,10 +27,7 @@ class QRCodePayment(Authorization):
 
         response = basic_request('POST', url, headers=self._get_headers(), payload=payload)
 
-        if response['status']['code'] != BusinessCode.SUCCESS:
-            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
-
-        return response['data']
+        return response
 
     @check_in_kwargs(["amount", "invoice"])
     def gererate_qr_cs(self, amount=None, invoice=None, description="", expiry_time=60, user_definded=""):
@@ -51,10 +46,7 @@ class QRCodePayment(Authorization):
 
         response = basic_request('POST', url, headers=self._get_headers(), payload=payload)
 
-        if response['status']['code'] != BusinessCode.SUCCESS:
-            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
-
-        return response['data']
+        return response
 
     @check_in_kwargs(["amount", "invoice", "ref1", "ref2", "ref3"])
     def gererate_qr_30_qr_cs(self, amount=None, invoice=None, description="", expiry_time=60, user_definded="", ref1=None, ref2=None, ref3=None):
@@ -78,10 +70,7 @@ class QRCodePayment(Authorization):
 
         response = basic_request('POST', url, headers=self._get_headers(), payload=payload)
 
-        if response['status']['code'] != BusinessCode.SUCCESS:
-            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
-
-        return response['data']
+        return response
 
     @check_in_kwargs(["transaction"])
     def slip_verification(self, transaction=None):
@@ -89,17 +78,11 @@ class QRCodePayment(Authorization):
 
         response = basic_request('GET', url, headers=self._get_headers())
 
-        if response['status']['code'] != BusinessCode.SUCCESS:
-            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
-
-        return response['data']
+        return response
 
     def payment_inquiry(self, qr):
         url = self._get_path("QRCODE_CREDITCARD_PATH", qr=qr)
 
         response = basic_request('GET', url, headers=self._get_headers())
 
-        if response['status']['code'] != BusinessCode.SUCCESS:
-            raise SCBPaymentError("{0} {1}".format(response['status']['code'], response['status']['description']))
-
-        return response['data']
+        return response

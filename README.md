@@ -1,16 +1,8 @@
 # SCB Payment Python
-A Python library for [SCB Payment](https://developer.scb/) API
 
-## Releases
-  * ```2020-05-16``` initial project
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
+A Python library for [SCB Payment](https://developer.scb/) API - SCB Python
 
 
-## Installation <a name="installation"></a>
-
-
-## Usage <a name="usage"></a>
+| Name                                                        | Description               |
+| ------------------------------------------------------------|---------------------------|
+| [qrcode_payment.md (*Only Sandbox)](qrcode_payment.md)      | QR Code Payment           |
